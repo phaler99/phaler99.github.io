@@ -13,7 +13,7 @@ var createScene = function () {
     camera = new BABYLON.ArcRotateCamera("camera1",
     0, 0, 0, new BABYLON.Vector3(0, 0, 0), scene);
     
-    camera.setPosition(new BABYLON.Vector3(5, 0, 0));
+    camera.setPosition(new BABYLON.Vector3(0, 0, 25));
 
     camera.attachControl(canvas, true);
 
@@ -40,12 +40,18 @@ var createScene = function () {
     var light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
     light.intensity = 0.7;
 
-    BABYLON.SceneLoader.ImportMesh("", "images/", "earth.glb", scene, function (newMeshes) {
-        // Set the target of the camera to the first imported mesh
-        camera.target = newMeshes[0];
+    BABYLON.SceneLoader.ImportMesh("", "images/", "earth.glb", scene, function (meshes) {
+        var importedMesh = meshes[0];
+        var scaleX = -0.01; // Adjust this value as needed to scale the mesh in the x-axis
+        var scaleY = 0.01; // Adjust this value as needed to scale the mesh in the y-axis
+        var scaleZ = 0.01; // Adjust this value as needed to scale the mesh in the z-axis
+
+        // Apply scaling transformation to the mesh
+        importedMesh.scaling = new BABYLON.Vector3(scaleX, scaleY, scaleZ);
+        camera.target = importedMesh;
     });
 
-    const skybox = BABYLON.MeshBuilder.CreateBox("skyBox", { size: 1000.0 }, scene);
+    const skybox = BABYLON.MeshBuilder.CreateBox("skyBox", { size: 2000.0 }, scene);
     const skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
     skyboxMaterial.backFaceCulling = false;
     skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("images/skybox", scene);
