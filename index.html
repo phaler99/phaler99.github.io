@@ -3,16 +3,153 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Robert S. | Web Developer</title>
+	<title>Your Name | Web Developer</title>
 	<link rel="stylesheet" href="styles.css">
 	<script src="https://cdn.babylonjs.com/babylon.js"></script>
 	<script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/FitText.js/1.2.0/jquery.fittext.min.js"></script>
+	<link rel="icon" type="image/x-icon" href="images/earth.ico">
 </head>
 <body>
 	<div id="container">
 		<canvas id="renderCanvas"></canvas>
 		<script src="script.js"></script>
-		<div id="cover"></div>
+		<div id="clicked">
+			<a>Yes, the probability is 50% for the choice of which side to go to.<br>
+				<center><button id="clickedclose">CLOSE</button></center>
+			</a>
+		</div>
+		<script>$(document).ready(function() {$("#clicked").fitText();});</script>
+		<div id="cover">
+			<div id="text1">Hello, I'm Your Name.<br></div>
+			<div id="text2">A front-end web developer.</div>
+			<button id="button1" class="button" style="--c: #229091;"><img src="images/arrow.png" id="button-img" draggable="false"></button>
+		</div>
+		<div id="cover2">
+			<div id="navbar">
+				<ul style="float: left;">
+					<li><a href="#" id="home">HOME</a></li>
+					<li><a href="#about" class="active">ABOUT</a></li>
+					<li><a href="#projects">PROJECTS</a></li>
+					<li><a href="#contact">CONTACT</a></li>
+					<li><a href="#" class="width: 10vw;" id="reverse"><img src="images/arrow.png" draggable="false"></a></li>
+				</ul>
+			</div>
+			<ul class="circles">
+				<li></li><li></li>
+				<li></li><li></li>
+				<li></li><li></li>
+				<li></li><li></li>
+				<li></li><li></li>
+			</ul>
+			<section id="about" class="sections">
+				<div id="icons">
+					<div id="line2" class="icontainer">
+						<img src="images/html.png" class="iconimg" id="iconimg1">
+						<a class="ibox" id="link1" draggable="false" href="#">HTML</a>
+					</div>
+					<div id="line2" class="icontainer">
+						<img src="images/css.png" class="iconimg" id="iconimg2">
+						<a class="ibox" id="link2" draggable="false" href="#">CSS</a>
+					</div>
+					<div id="line2" class="icontainer">
+						<img src="images/js.png" class="iconimg" id="iconimg3">
+						<a class="ibox" id="link3" draggable="false" href="#">JS</a>
+					</div><br>
+					<div id="line1" class="icontainer">
+						<img src="images/reactjs.png" class="iconimg" id="iconimg4">
+						<a class="ibox" id="link4" draggable="false" href="#">React</a>
+					</div>
+					<div id="line1" class="icontainer">
+						<img src="images/jquery.png" class="iconimg" id="iconimg5">
+						<a class="ibox" id="link5" draggable="false" href="#">JQuery</a>
+					</div><br>
+					<div id="line2" class="icontainer">
+						<img src="images/sass.png" class="iconimg" id="iconimg6">
+						<a class="ibox" id="link6" draggable="false" href="#">SASS</a>
+					</div>
+					<div id="line2" class="icontainer">
+						<img src="images/json.png" class="iconimg" id="iconimg7">
+						<a class="ibox" id="link7" draggable="false" href="#">JSON</a>
+					</div>
+					<div id="line2" class="icontainer">
+						<img src="images/git.png" class="iconimg" id="iconimg8">
+						<a class="ibox" id="link8" draggable="false" href="#">Git</a>
+					</div>
+					<script>
+						$(document).ready(function() {
+							$(".ibox").click(function() {
+								var linkId = $(this).attr("id");
+								var iconId = "#iconimg" + linkId.substr(4);
+
+								if ($(this).css("opacity") !== "1") {
+									$(this).css("opacity", "1");
+									$(iconId).css("opacity", "0");
+								} else {
+									$(this).css("opacity", "0");
+									$(iconId).css("opacity", "1");
+								}
+							});
+						});
+					</script>
+				</div>
+				<div id="aboutme">
+					<center><h2>About me</h2></center>
+					<a>I'm Your Name, a highly skilled and motivated web developer with a deep passion for creating innovative digital experiences.<br> With a strong track record of delivering high-quality web solutions, I possess the technical expertise and creative mindset needed to excel in the field of web development.</a>
+				</div>
+			</section>
+			<section id="projects" class="sections">
+				<div id="first">
+					<div id="first1">
+						<div class="firstext">
+							<a>Project Name</a>
+						</div>
+						<div>
+							<button><a>LEARN MORE</a></button>
+						</div>
+					</div>
+					<div id="first2"><img src="images/sliderimg.jpg" draggable="false"></div>
+				</div>
+				<div id="first">
+					<div id="first2"><img src="images/sliderimg.jpg" draggable="false"></div>
+					<div id="first1">
+						<div>
+							<a>Project Name</a>
+						</div>
+						<div>
+							<button><a>LEARN MORE</a></button>
+						</div>
+					</div>
+				</div>
+				<div id="first">
+					<div id="first1">
+						<div class="firstext">
+							<a>Project Name</a>
+						</div>
+						<div>
+							<button><a>LEARN MORE</a></button>
+						</div>
+					</div>
+					<div id="first2"><img src="images/sliderimg.jpg" draggable="false"></div>
+				</div>
+			</section>
+			<section id="contact" class="sections">
+				<div>
+					<div id="contactdiv1"><a>Contact Me!</a></div>
+					<div id="contactdiv2">
+						<div id="email"><a id="a1"><img src="images/email.png" draggable="false"></a><a id="a2">workemail@domain.com</a></div>
+						<div id="phone"><a id="a1"><img src="images/phone.png" draggable="false"></a><a id="a2">+1234567890</a></div>
+						<div id="iconss">
+							<a href="#"><img src="images/github.png" draggable="false"></a>
+							<a href="#"><img src="images/linkedin.png" draggable="false"></a>
+							<a href="#"><img src="images/facebook.png" draggable="false"></a>
+							<a href="#"><img src="images/instagram.png" draggable="false"></a>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
 	</div>
 </body>
 </html>
